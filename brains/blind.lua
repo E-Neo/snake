@@ -1,6 +1,4 @@
-local brain = function (x, y, snake, food)
-   if not snake.is_alive() then return end
-   math.randomseed(os.time())
+local brain = function (x, y, snake, food, synaptic_vesicle)
    local get_new_head = function (direction, snake)
       local body = snake.get_body()
       local head = body[1]
@@ -43,6 +41,7 @@ local brain = function (x, y, snake, food)
          return
       end
    end
+   return synaptic_vesicle
 end
 
 

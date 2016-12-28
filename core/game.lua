@@ -10,6 +10,7 @@ Game.new = function (para)
    local block_size = para.block_size or 25
    local brain = para.brain
 
+   math.randomseed(os.time())
    assert(SDL.init({SDL.flags.Video}))
 
    local win = assert(
@@ -80,6 +81,7 @@ Game.new = function (para)
    local keys = SDL.getKeyboardState()
    local running = true
    local success = false
+   local synaptic_vesicle = {}
    update_food(x, y, snake, food)
    return {
       get_SDL_data = function ()
@@ -95,7 +97,9 @@ Game.new = function (para)
                running = false
             end
          end
-         if brain then brain(x, y, snake) end
+         if brain and snake.is_alive() then
+            synaptic_vesicle = brain(x, y, snake, food, synaptic_vesicle)
+         end
          if keys[SDL.scancode.Left] then snake.set_direction("left") end
          if keys[SDL.scancode.Right] then snake.set_direction("right") end
          if keys[SDL.scancode.Up] then snake.set_direction("up") end
