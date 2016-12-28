@@ -1,0 +1,32 @@
+Snake
+=====
+
+
+Introduction
+------------
+
+This is a simple game snake wrote as a platform to implement different snake AI.
+
+
+Requirements
+------------
+
+- Lua 5.3
+- Lua-SDL2 (luarocks install lua-sdl2)
+  https://github.com/Tangent128/luasdl2/
+
+
+Usage
+-----
+
+Play the game:
+> lua main.lua
+
+Or give a brain to the snake:
+> lua main.lua -b brains/blind.lua -x 10 -y 10
+
+
+License
+-------
+
+This project is licensed under the terms of the MIT license.
