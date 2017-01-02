@@ -36,7 +36,11 @@ Snake.new = function (para)
       is_alive = function () return data.alive end,
       get_direction = function () return data.direction end,
       set_direction = function (direction) data.direction = direction end,
-      get_body = function () return data.body end,
+      get_body = function ()
+         local body = {}
+         for k, v in pairs(data.body) do body[k] = v end
+         return body
+      end,
       die = function () data.alive = false end,
       move = function () return move(data.direction) end,
       grow = function (tail) table.insert(data.body, tail) end,

@@ -9,7 +9,7 @@ Food.new = function (para)
    local rdr = para.renderer
    local position = {}
    return {
-      get_position = function () return position end,
+      get_position = function () return {x = position.x, y = position.y} end,
       draw = function ()
          rdr:setDrawColor(0xff0000)
          rdr:fillRect({
