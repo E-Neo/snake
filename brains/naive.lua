@@ -85,7 +85,7 @@ local brain = function (x, y, snake, food, synaptic_vesicle)
          local direction = table.remove(directions, math.random(#directions))
          if not will_die(direction, x, y, snake) then
             snake.set_direction(direction)
-            return
+            return synaptic_vesicle
          end
       end
    end
